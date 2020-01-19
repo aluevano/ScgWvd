@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Task<IEnumerable<SCGWvd.Models.Interfaces.IScgVm>>
+@{
+    ViewData["Title"] = "Stratus Cloud WVD Manager";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Choose an instance to connect</p>
+
+    @foreach (var vm in await @Model)
+    {
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">
+                SCG WVD Pool
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Current Status: @vm.CurrentState</h5>
+                    <a href="/Home/Connect?computerName=@vm.ComputerName&resourceGroupName=@vm.ResourceGroup" class="btn btn-primary">Start then Connect</a>
+            </div>
+        </div>
+    }
+</div>
+
+<hr/>
+
+
+
+<script language="javascript">
+    var startThenLoad = function(computerName, resourceGroup) {
+        $.get("/Home/Connect?computerName=" + computerName + "&resourceGroupName=" + resourceGroup,
+            function(data, status) {
+                justLoad();
+            });
+    };
+
+    var justLoad = function () {
+        //window.location.href = "https://rdweb.wvd.microsoft.com/webclient/index.html";
+        //  $( "#wvdframe" )[0].src = "https://rdweb.wvd.microsoft.com/webclient/index.html";
+        //  $( "#wvdframe" ).attr( 'src', function ( i, val ) { return val; });
+    };
+</script>

@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-SCGWvd-7eedeb5b-da3c-416f-be82-30cd58ec07f2</UserSecretsId>
+    <WebProject_DirectoryAccessLevelKey>1</WebProject_DirectoryAccessLevelKey>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <ApplicationInsightsResourceId>/subscriptions/ae256f9e-7ab0-4fa0-b917-11d299a6f414/resourcegroups/AwsLinkedRg/providers/microsoft.insights/components/scgwvdtestappinsights</ApplicationInsightsResourceId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureAD.UI" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Azure.Management.Fluent" Version="1.29.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.12.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.7.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Identity.Web\Microsoft.Identity.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PublishProfiles\" />
+  </ItemGroup>
+
+</Project>
