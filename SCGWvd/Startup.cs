@@ -95,7 +95,7 @@ namespace SCGWvd
         {
             //var credentials = SdkContext.AzureCredentialsFactory.FromFile("./azureauth.properties");
             var credentials = SdkContext.AzureCredentialsFactory.FromServicePrincipal(Configuration["ClientId"],
-                Configuration["AzureAd.ClientSecret"], Configuration["AzureAd.TenantId"], AzureEnvironment.AzureGlobalCloud);
+                Configuration["AzureAd.ClientSecret"], Configuration["TenantId"], AzureEnvironment.AzureGlobalCloud);
 
             var azure = Azure
                 .Configure()
