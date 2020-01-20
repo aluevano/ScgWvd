@@ -3,15 +3,15 @@ provider "azurerm" {
     version= "=1.38.0"
 }
 
-resource "azurerm_resource_group" "testRg"{
-    name = "testrg"
+resource "azurerm_resource_group" "awsLinkedRg"{
+    name = "AwsLinked-Rg"
     location = "Central US"
 }
 
-resource "azurerm_app_service_plan" "testAppSvcPlan" {
-    name = "test-appsvcplan"
-    location = "${azurerm_resource_group.testRg.location}"
-    resource_group_name = "${azurerm_resource_group.testRg.name}"
+resource "azurerm_app_service_plan" "appSvcPlan" {
+    name = "scgwvdtestappplan"
+    location = "${azurerm_resource_group.awsLinkedRg.location}"
+    resource_group_name = "${azurerm_resource_group.awsLinkedRg.name}"
 
     sku{
         tier = "Free"
@@ -19,11 +19,11 @@ resource "azurerm_app_service_plan" "testAppSvcPlan" {
     }
 }
 
-resource "azurerm_app_service" "testAppSvc"{
-    name = "example-app-svc"
-    location = "${azurerm_resource_group.testRg.location}"
-    resource_group_name = "${azurerm_resource_group.testRg.name}"
-    app_service_plan_id = "${azurerm_app_service_plan.testAppSvcPlan.id}"
+resource "azurerm_app_service" "scgwvdtestapp"{
+    name = "scgwvdtestapp"
+    location = "${azurerm_resource_group.awsLinkedRg.location}"
+    resource_group_name = "${azurerm_resource_group.awsLinkedRg.name}"
+    app_service_plan_id = "${azurerm_app_service_plan.appSvcPlan.id}"
 
     site_config {
         dotnet_framework_version = "v4.7"

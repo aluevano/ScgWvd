@@ -14,6 +14,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Identity.Web", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Identity.Web.Test", "Microsoft.Identity.Web.Test\Microsoft.Identity.Web.Test.csproj", "{241C59E8-DE84-4AB7-9570-3536B10DACB0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ArmTemplates", "ArmTemplates", "{C6210F73-630B-477B-AF5B-ABFFC865A181}"
+	ProjectSection(SolutionItems) = preProject
+		AppServicePlan.json = AppServicePlan.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +40,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6210F73-630B-477B-AF5B-ABFFC865A181} = {722B6352-2498-4256-B413-177071B60533}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42AE3577-090F-499E-82E7-34E8FC662F9B}
