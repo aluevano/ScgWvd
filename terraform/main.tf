@@ -10,8 +10,8 @@ resource "azurerm_resource_group" "awsLinkedRg"{
 
 resource "azurerm_app_service_plan" "appSvcPlan" {
     name = "scgwvdtestappplan"
-    location = "${azurerm_resource_group.awsLinkedRg.location}"
-    resource_group_name = "${azurerm_resource_group.awsLinkedRg.name}"
+    location = azurerm_resource_group.awsLinkedRg.location
+    resource_group_name = azurerm_resource_group.awsLinkedRg.name
 
     sku{
         tier = "Free"
@@ -21,13 +21,14 @@ resource "azurerm_app_service_plan" "appSvcPlan" {
 
 resource "azurerm_app_service" "scgwvdtestapp"{
     name = "scgwvdtestapp"
-    location = "${azurerm_resource_group.awsLinkedRg.location}"
-    resource_group_name = "${azurerm_resource_group.awsLinkedRg.name}"
-    app_service_plan_id = "${azurerm_app_service_plan.appSvcPlan.id}"
+    location = azurerm_resource_group.awsLinkedRg.location
+    resource_group_name = azurerm_resource_group.awsLinkedRg.name
+    app_service_plan_id = azurerm_app_service_plan.appSvcPlan.id
 
     site_config {
-        dotnet_framework_version = "v4.7"
+        dotnet_framework_version = "v4.0"
         scm_type = "LocalGit"
+        use_32_bit_worker_process = true
     }
 
     app_settings = {
