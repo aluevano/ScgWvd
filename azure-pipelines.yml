@@ -45,6 +45,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/arm'
+    targetPath: '$(System.DefaultWorkingDirectory)/Arm'
     artifact: 'arm'
     publishLocation: 'pipeline'
