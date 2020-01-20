@@ -1,10 +1,11 @@
-terraform{
+terraform {
 
     backend "azurerm"{
         resource_group_name = "AwsLinked-Rg"
         storage_account_name = "scgwvdterraform"
         container_name = "terraform"
     }
+}
 
     provider "azurerm" {
         version= "=1.38.0"
@@ -42,4 +43,3 @@ terraform{
         "SOME_KEY" = "some-value"
         }
     }
-}
